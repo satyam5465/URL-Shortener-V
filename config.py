@@ -28,14 +28,14 @@ DATABASE_NAME = os.environ.get("DATABASE_NAME", "MdiskConvertor")
 DATABASE_URL = os.environ.get(
     "mongodb+srv://Dipanshu_021:ad8920@cluster0.f7migc1.mongodb.net/?retryWrites=true&w=majority", None
 )  # mongodb uri from https://www.mongodb.com/
-OWNER_ID = int(os.environ.get("OWNER_ID"))  # id of the owner
+OWNER_ID = int(os.environ.get("1291288382"))  # id of the owner
 ADMINS.append(OWNER_ID) if OWNER_ID not in ADMINS else []
 
 #  Optionnal variables
 LOG_CHANNEL = int(
-    os.environ.get("LOG_CHANNEL", "0")
+    os.environ.get("-1001470575315", "-1001470575315")
 )  # log channel for information about users
-UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", False)  # For Force Subscription
+UPDATE_CHANNEL = os.environ.get("UPDATES_CHANNEL", False)  # For Force Subscription
 BROADCAST_AS_COPY = is_enabled(
     (os.environ.get("BROADCAST_AS_COPY", "False")), False
 )  # true if forward should be avoided
@@ -49,13 +49,13 @@ WELCOME_IMAGE = os.environ.get("WELCOME_IMAGE", "")  # image when someone hit /s
 LINK_BYPASS = is_enabled(
     (os.environ.get("LINK_BYPASS", "False")), False
 )  # if true, urls will be bypassed
-BASE_SITE = os.environ.get("BASE_SITE", "droplink.co")  # your shortener site domain
+BASE_SITE = os.environ.get("BASE_SITE", "neolinks.000webhostapp.com")  # your shortener site domain
 
 # For Admin use
 CHANNELS = is_enabled((os.environ.get("CHANNELS", "True")), True)
 CHANNEL_ID = (
     [int(i.strip()) for i in os.environ.get("CHANNEL_ID").split(" ")]
-    if os.environ.get("CHANNEL_ID")
+    if os.environ.get("-1001470575315")
     else []
 )
 
