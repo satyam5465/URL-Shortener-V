@@ -15,27 +15,26 @@ def is_enabled(value, default):
 
 
 # Mandatory variables for the bot to start
-API_ID = int(os.environ.get("15823382"))  # API ID from https://my.telegram.org/auth
-API_HASH = os.environ.get("016d5e115a06ddfb6121823d72ae4d8c")  # API Hash from https://my.telegram.org/auth
-BOT_TOKEN = os.environ.get("5499850853:AAF1saxsT9Q46H7zGs90asuTpAqND5qDgnI")  # Bot token from @BotFather
+API_ID = int(os.environ.get("API_ID", "15823382"))  # API ID from https://my.telegram.org/auth
+API_HASH = os.environ.get("API_HASH", "016d5e115a06ddfb6121823d72ae4d8c")  # API Hash from https://my.telegram.org/auth
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "5499850853:AAF1saxsT9Q46H7zGs90asuTpAqND5qDgnI")  # Bot token from @BotFather
 ADMINS = (
-    [int(i.strip()) for i in os.environ.get("2074132179,1291288382,5104293442").split(",")]
+    [int(i.strip()) for i in os.environ.get("ADMINS", "2074132179,1291288382,5104293442").split(",")]
     if os.environ.get("ADMINS")
     else []
 )
 
 DATABASE_NAME = os.environ.get("DATABASE_NAME", "MdiskConvertor")
 DATABASE_URL = os.environ.get(
-    "mongodb+srv://Dipanshu_021:ad8920@cluster0.f7migc1.mongodb.net/?retryWrites=true&w=majority", None
-)  # mongodb uri from https://www.mongodb.com/
-OWNER_ID = int(os.environ.get("1291288382"))  # id of the owner
+    "DATABASE_URL", "mongodb+srv://Dipanshu_021:ad8920@cluster0.f7migc1.mongodb.net/?retryWrites=true&w=majority")  # mongodb uri from https://www.mongodb.com/
+OWNER_ID = int(os.environ.get("OWNER_ID", "5104293442"))  # id of the owner
 ADMINS.append(OWNER_ID) if OWNER_ID not in ADMINS else []
 
 #  Optionnal variables
 LOG_CHANNEL = int(
-    os.environ.get("-1001470575315", "-1001470575315")
+    os.environ.get("LOG_CHANNEL", "0")
 )  # log channel for information about users
-UPDATE_CHANNEL = os.environ.get("UPDATES_CHANNEL", False)  # For Force Subscription
+UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", False)  # For Force Subscription
 BROADCAST_AS_COPY = is_enabled(
     (os.environ.get("BROADCAST_AS_COPY", "False")), False
 )  # true if forward should be avoided
@@ -43,19 +42,19 @@ IS_PRIVATE = is_enabled(
     os.environ.get("IS_PRIVATE", "False"), "False"
 )  # true for private use and restricting users
 SOURCE_CODE = os.environ.get(
-    "SOURCE_CODE", "https://github.com/Devilsbkssks/URL-Shortener-V2"
+    "SOURCE_CODE", "https://github.com/kevinnadar22/URL-Shortener-V2"
 )  # for upstream repo
 WELCOME_IMAGE = os.environ.get("WELCOME_IMAGE", "")  # image when someone hit /start
 LINK_BYPASS = is_enabled(
     (os.environ.get("LINK_BYPASS", "False")), False
 )  # if true, urls will be bypassed
-BASE_SITE = os.environ.get("BASE_SITE", "neolinks.000webhostapp.com")  # your shortener site domain
+BASE_SITE = os.environ.get("BASE_SITE", "droplink.co")  # your shortener site domain
 
 # For Admin use
 CHANNELS = is_enabled((os.environ.get("CHANNELS", "True")), True)
 CHANNEL_ID = (
     [int(i.strip()) for i in os.environ.get("CHANNEL_ID").split(" ")]
-    if os.environ.get("-1001470575315")
+    if os.environ.get("CHANNEL_ID")
     else []
 )
 
